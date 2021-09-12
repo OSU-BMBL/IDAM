@@ -8,7 +8,7 @@ int gene_cor_uber(char *a)
 {
     static char *atom = NULL,*ptr = NULL;
     FILE *f_blastx = fopen(blast,"r");  /*./blastx.tsv*/
-	FILE *f_result = fopen("./result.txt","r");
+	FILE *f_result = fopen("./uber_operon_structure.txt","r");
 	size_t n = 0;
 	char *line;
 	char ba[100] = {0},bb[100]={0};        
