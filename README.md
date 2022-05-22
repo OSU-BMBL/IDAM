@@ -16,7 +16,7 @@ BLAST is used for sequence alignment between the sequences from UniRef90 gene fa
 The source code of IDAM is freely available at https://github.com/OSU-BMBL/IDAM. To install IDAM, you can download the zip file manually from GitHub, or use the code below in Linux.
    	 
 	cd /your/working/path/ 
-	wget https://cloud.osubmi.com//downloadFiles/idam/idam_master.zip
+	wget https://cloud.osubmi.com/downloadFiles/idam/idam_master.zip
 
 Then, unzip the file:
 
@@ -29,9 +29,9 @@ Compile codes:
 
 
 ### 3. Data preparation ###
-To run the tutorial, first download the data [here](https://cloud.osubmi.com//downloadFiles/idam/) (1.0G) into the folder ./idam_master, or use wget code in the Linux system.	
+To run the tutorial, first download the data [here](https://cloud.osubmi.com/downloadFiles/idam/) (1.0G) into the folder ./idam_master, or use wget code in the Linux system.	
 	
-	wget https://cloud.osubmi.com//downloadFiles/idam/meta_data.tar.gz
+	wget https://cloud.osubmi.com/downloadFiles/idam/meta_data.tar.gz
 
 Then unzip the file.
 	
