@@ -68,7 +68,7 @@ static void init_options ()
 	po->IS_area = FALSE;
 	po->IS_cond = FALSE;
 	po->IS_list = FALSE;
-	uber_ratio = 0.1;
+	uber_ratio = 0.3;
 }
 
 /*argc is a count of the arguments supplied to the program and argc[] is an array of pointers to the strings which are those arguments-its type is array of pointer to char
