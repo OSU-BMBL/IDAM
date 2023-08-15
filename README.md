@@ -2,18 +2,18 @@
 ## Brief Description ##
 IDAM provides a framework for the identification of microbial disease-associated gene modules based on metagenomic and metatranscriptomic data. The raw sequencing data (matched metagenomic and metatranscriptomic data) or the expression matrix is required. The output is gene modules consisting of gene and sample subsets.
 ## Environment ##
-IDAM is an integrated C package that requires a basic UNIX/Linux environment. The gcc compiler with version 4.8.5 or higher is required to be prior installed. More details can be found [here](https://urldefense.com/v3/__https://gcc.gnu.org/wiki/InstallingGCC__;!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67yez2GpKA$ ). Currently, IDAM does not support Mac or Windows systems.
+IDAM is an integrated C package that requires a basic UNIX/Linux environment. The gcc compiler with version 4.8.5 or higher is required to be prior installed. More details can be found [here](https://gcc.gnu.org/wiki/InstallingGCC). Currently, IDAM does not support Mac or Windows systems.
 ## Usage ##
 ### 1. Dependencies ###
-Dependencies of IDAM are listed below. You can click the software name to navigate to its website. Note that after installing each dependency, you should [add it to path](https://urldefense.com/v3/__https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path__;!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67ygA1Ygwk$ ) to ensure a successful run.
-#### 1) [HUMAnN2](https://urldefense.com/v3/__https://huttenhower.sph.harvard.edu/humann2__;!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67yQWCbt5Y$ ) (>=2.8.1)
+Dependencies of IDAM are listed below. You can click the software name to navigate to its website. Note that after installing each dependency, you should [add it to path](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path) to ensure a successful run.
+#### 1) [HUMAnN2](https://huttenhower.sph.harvard.edu/humann2) (>=2.8.1)
 HUMAnN2 is used to process the raw sequencing file and obtain the relative expression of each sample.
-#### 2) [BLAST+](https://urldefense.com/v3/__https://ftp.ncbi.nlm.nih.gov/blast/executables/blast*/__;Kw!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67yXnLTck4$ ) (>=2.10.0) 
+#### 2) [BLAST+](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/) (>=2.10.0) 
 BLAST is used for sequence alignment between the sequences from UniRef90 gene families and the gene sequences of uber-operons.
 
 
 ### 2. Installation ###
-The source code of IDAM is freely available at https://urldefense.com/v3/__https://github.com/OSU-BMBL/IDAM__;!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67y8wbKfW4$ . To install IDAM, you can download the zip file manually from GitHub, or use the code below in Linux.
+The source code of IDAM is freely available at https://github.com/OSU-BMBL/IDAM. To install IDAM, you can download the zip file manually from GitHub, or use the code below in Linux.
    	 
 	cd /your/working/path/ 
 	wget https://bmblx.bmi.osumc.edu/downloadFiles/idam/idam_master.zip
@@ -83,7 +83,7 @@ Then, you can merge the community-level gene expression of each sample based on 
 #### 4.2 The alignment with uber-operon sequences ####
 This step is to obtain the sequence alignment result for the relationships between genes and uber-operons. 
 
-First, the gene (UniRef identifiers) sequence can be extracted from the UniProt database via the [Retrieve/ID mapping tool](https://urldefense.com/v3/__https://www.uniprot.org/uploadlists/__;!!AU3bcTlGKuA!AtObv-wJTZerShPccAYb-FBtNGTbGY2ro9X_UUeOmFFeVq6ilmbmPu8SLExx_2AoihcmYMSpR5yLW67yc2-EWIg$ ). When you input the ID within the matrix from the previous step, you can get all sequences. Put them into one file, as shown in the file ./meta_data/sequence/uniref.fasta. Then, run the command.
+First, the gene (UniRef identifiers) sequence can be extracted from the UniProt database via the [Retrieve/ID mapping tool](https://www.uniprot.org/uploadlists/). When you input the ID within the matrix from the previous step, you can get all sequences. Put them into one file, as shown in the file ./meta_data/sequence/uniref.fasta. Then, run the command.
 
 	makeblastdb -in ./sequence_output.fa -dbtype nucl -out gene -parse_seqids
 	tblastn -query ./meta_data/sequence/uniref.fasta -db gene -soft_masking true -outfmt 6 -out ./meta_data/input/tblastx.tsv -evalue 0.001 -num_threads 8 -max_hsps 1
